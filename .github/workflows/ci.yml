@@ -20,7 +20,7 @@ jobs:
         run: bun run lint
 
   build:
-    needs: lint-client
+    needs: lint-job
     name: Code build
     runs-on: ubuntu-latest
 
