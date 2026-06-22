@@ -5,15 +5,17 @@ jobs:
      runs-on: ubuntu-latest
 
      steps:
-     -name : Checkout Code
-     uses: actions/checkout@v4
-     -name : Setup Bun
-     uses : oven-sh/setup-bun@v2
-     with:
-     bun-versions: latest
-     -name: Install Dependecies
-     run: bun install --frozen-lockfile
+     - name : Checkout Code
+       uses: actions/checkout@v4
+     
+     - name : Setup Bun
+       uses : oven-sh/setup-bun@v2
+       with:
+        bun-versions: latest
 
-     -name: Run Linter 
-     run: bun run lint
+     - name: Install Dependecies
+       run: bun install --frozen-lockfile
+
+     - name: Run Linter 
+       run: bun run lint
  
