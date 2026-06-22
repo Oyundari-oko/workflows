@@ -1,21 +1,21 @@
-name : 01 - Bun Code Lint
-on: [push] 
+name: 01 - Bun Code Lint
+on: [push]
 jobs:
   lint-job:
-     runs-on: ubuntu-latest
+    runs-on: ubuntu-latest
 
-     steps:
-     - name : Checkout Code
-       uses: actions/checkout@v4
-     
-     - name : Setup Bun
-       uses : oven-sh/setup-bun@v2
-       with:
-        bun-versions: latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+      - run: bun install --froze-lockfile
+      - run: bun run lint
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-versions: latest
 
-     - name: Install Dependecies
-       run: bun install --frozen-lockfile
+      - name: Install Dependecies
+        run: bun install --frozen-lockfile
 
-     - name: Run Linter 
-       run: bun run lint
- 
+      - name: Run Linter
+        run: bun run lint
